@@ -40,7 +40,7 @@ const planetData = [
     {
         name: "Mercury", radius: 0.2, orbit: 6, color: 0xaaaaaa, speed: 0.00048, cvHeader: "Who am I?",
         cvContent: `<div class="about-card">
-                        <h2>Thomas Delaeter</h2>
+                        <h3>Thomas Delaeter</h3>
                         <div class="img-wrapper">
                             <img src="./old_pf.jpg" alt="A picture of me." id="profile-pic">
                         </div>
@@ -394,8 +394,11 @@ function animate() {
 
     if (planetData[planetIndex].name === "Venus") {
         infoBox.classList.add('experiences-active');
+        tooltip.style.display = 'none';
     } else {
         infoBox.classList.remove('experiences-active');
+        if (!isMobile && activeCamera===camera_follow)
+            tooltip.style.display = 'block'
     }
 
     previousPos.copy(planetToFollow.position);
