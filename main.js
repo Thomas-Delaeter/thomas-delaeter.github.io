@@ -517,5 +517,23 @@ window.addEventListener('resize', () => {
   camera_follow.updateProjectionMatrix();
 });
 
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+renderer.domElement.addEventListener('pointerdown', (event) => {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, activeCamera);
+    const intersects = raycaster.intersectObject(sun, true);
+    if (intersects.length > 0) {
+        // Switch to chase cam
+        activeCamera = camera_follow;
+        controls.enabled = false;
+        infoBox.style.display = 'block';
+        topBox.style.display = 'none';
+        showMobileArrows(true);
+    }
+});
+
 
 animate();
