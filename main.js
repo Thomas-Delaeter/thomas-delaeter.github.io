@@ -330,6 +330,7 @@ window.addEventListener('keydown', (event) => {
         infoBox.style.display = 'none'; // hide info
         topBox.style.display = 'flex';
         showMobileArrows(false);
+        showExitChaseBtn(false);
 
     }
     if (event.key === 'ArrowDown') {
@@ -338,6 +339,8 @@ window.addEventListener('keydown', (event) => {
         infoBox.style.display = 'block';
         topBox.style.display = 'none';
         showMobileArrows(true);
+        showExitChaseBtn(true);
+        
     }
     if (event.key === 'ArrowRight') {
         planetIndex = (planetIndex + 1) % planets.length;
@@ -505,8 +508,17 @@ const showMobileArrows = (show) => {
     el.style.display = show ? 'flex' : 'none';
   });
 };
-
 showMobileArrows(false);
+const showExitChaseBtn = (show) => {
+  document.getElementById('exitChaseBtn').style.display = show ? 'flex' : 'none';
+};
+
+document.getElementById('exitChaseBtn').addEventListener('click', () => {
+  // Simulate pressing ArrowUp (overview mode)
+  window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
+  showExitChaseBtn(false);
+});
+showExitChaseBtn(false);
 
 window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -532,6 +544,7 @@ renderer.domElement.addEventListener('pointerdown', (event) => {
         infoBox.style.display = 'block';
         topBox.style.display = 'none';
         showMobileArrows(true);
+        showExitChaseBtn(true);
     }
 });
 
