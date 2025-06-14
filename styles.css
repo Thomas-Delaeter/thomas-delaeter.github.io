@@ -305,7 +305,7 @@ body {
   font-size: 0.97em;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) { */
   .about-card ul.d-flex.justify-content-between {
     justify-content: center !important;
     gap: 1.2em !important;
@@ -321,7 +321,7 @@ body {
     flex: none !important;
     text-align: center !important;
   }
-}
+/* } */
 
 .right-div.experiences-active {
   width: 64vw;         /* or whatever looks good to you */
@@ -355,11 +355,11 @@ body {
   border: 1.3px solid #5bb0f5;
   transition: background 0.2s, color 0.2s;
 }
-.chip:hover {
+/* .chip:hover {
   background: #5bb0f5;
   color: #182030;
   cursor: pointer;
-}
+} */
 .section-title {
   font-size: 1.2em;
   color: #ffd580;
