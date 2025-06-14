@@ -148,7 +148,7 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
     /* max-height: 80%; */
-    max-height: calc(96vh - 100px); 
+    max-height: calc(96vh - (100px+env(safe-area-inset-*))); 
 
     padding-bottom: 10%; /* Let the padding on .right-div do the job */
     overflow-y: auto;
