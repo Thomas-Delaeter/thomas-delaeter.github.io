@@ -156,15 +156,21 @@ body {
     padding: 1rem 0.3rem !important;
     overflow-x: hidden;
     box-sizing: border-box;
-    max-height: 80%;
+    /* max-height: 80%; */
+    /* margin-bottom: 50px; */
+
+    max-height: calc(100vh - 160px); /* Subtract enough for header + padding + pagination area */
+    margin-bottom: 0; /* Let the padding on .right-div do the job */
   }
   .right-div, .right-div.experiences-active {
     padding: 1rem 0.2rem !important;
     box-sizing: border-box;
   }
   .right-div.experiences-active .about-card {
-    max-height: 83vh;
+    /* max-height: 83vh; */
     overflow-y: auto;
+    max-height: calc(100vh - 160px); /* Subtract enough for header + padding + pagination area */
+    margin-bottom: 0; /* Let the padding on .right-div do the job */
   }
 }
 
@@ -404,6 +410,7 @@ body {
 
 .timeline-list {
   margin-top: 2em;
+  margin-right: 1em;
   padding-left: 0;
   position: relative;
 }
@@ -512,6 +519,7 @@ body {
   transform: translateY(-50%);
   user-select: none;
   transition: background 0.17s;
+  /* margin-bottom: 94px; */
 }
 
 .mobile-arrow:active {
@@ -523,7 +531,8 @@ body {
 
 @media (max-width: 1000px) {
   .mobile-arrow {
-    top: 85%;
+    top: auto;
+    bottom: 74px;
   }
 }
 
