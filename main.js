@@ -146,11 +146,11 @@ const planetData = [
                         <li>
                         <span class="timeline-dot"></span>
                         <div class="timeline-content">
-                            <strong>Secondary Education</strong><br>
-                            Sciences - Mathematics
-                            <div class="timeline-details">Sep 2013 - Jun 2019 | Sint-Godelieve-Instituut Lennik</div>
+                            <strong>Transition Program & Master</strong><br>
+                            MSc Information Engineering Technology
+                            <div class="timeline-details">Sep 2022 - Present | Ghent University</div>
                         </div>
-                        </li>
+                        </li>                        
                         <li>
                         <span class="timeline-dot"></span>
                         <div class="timeline-content">
@@ -162,9 +162,9 @@ const planetData = [
                         <li>
                         <span class="timeline-dot"></span>
                         <div class="timeline-content">
-                            <strong>Transition Program & Master</strong><br>
-                            MSc Information Engineering Technology
-                            <div class="timeline-details">Sep 2022 - Present | Ghent University</div>
+                            <strong>Secondary Education</strong><br>
+                            Sciences - Mathematics
+                            <div class="timeline-details">Sep 2013 - Jun 2019 | Sint-Godelieve-Instituut Lennik</div>
                         </div>
                         </li>
                     </ul>
@@ -283,6 +283,25 @@ planetData.forEach(p => {
     const mesh = new THREE.Mesh(geometry, material);
     mesh.userData = { orbit: p.orbit, speed: p.speed };
     scene.add(mesh);
+
+    if (p.name === "Saturn") {
+        const ringInner = p.radius * 1.15;
+        const ringOuter = p.radius * 1.6;
+        const ringGeometry = new THREE.RingGeometry(ringInner, ringOuter, 128);
+        // Make it look “icy” with a transparent white
+        const ringMaterial = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.55
+        });
+        const ringMesh = new THREE.Mesh(ringGeometry, ringMaterial);
+
+        // Rotate rings to be tilted like Saturn’s
+        ringMesh.rotation.x = Math.PI / 2.5; // adjust as you like!
+
+        mesh.add(ringMesh); // attach rings to Saturn!
+    }
 
     const orbitGeometry = new THREE.RingGeometry(p.orbit, p.orbit + 0.05, 256);
     const orbitMaterial = new THREE.MeshBasicMaterial({
