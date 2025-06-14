@@ -357,6 +357,7 @@ body {
   letter-spacing: 0.02em;
   border: 1.3px solid #5bb0f5;
   transition: background 0.2s, color 0.2s;
+  flex-wrap: wrap;  
 }
 /* .chip:hover {
   background: #5bb0f5;
