@@ -510,8 +510,8 @@ body {
     background: rgba(30, 32, 40, 0.88); /* more see-through */
     z-index: 2;
     overflow-y: auto;
-    padding-bottom: calc(200px + env(safe-area-inset-bottom)) !important;
     padding: 1rem 0.2rem !important;
+    padding-bottom: calc(200px + env(safe-area-inset-bottom)) !important;
     box-sizing: border-box;
   }
 }
