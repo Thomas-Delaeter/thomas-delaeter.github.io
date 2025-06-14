@@ -283,7 +283,7 @@ body {
 }
 
 /* On small screens, allow horizontal scrolling if needed */
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .languages-grid {
     display: grid !important;
     grid-template-columns: auto 1fr max-content !important;
@@ -300,8 +300,43 @@ body {
     align-items: center;
     justify-content: center;
   }
-}
+} */
+@media (max-width: 650px) {
+  .languages-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 600px;
+    margin: 0 auto 1.5em auto !important;
+    padding: 0 !important;
+  }
+  /* Remove extra space between elements within the same group */
+  .languages-grid > div {
+    width: 100% !important;
+    text-align: center;
+    white-space: normal;
+    margin: 0 !important;
+    display: block !important;
+    font-size: 1em;
+    padding: 0;
+  }
+  /* Tightly group chip, bar, description within a language */
+  .languages-grid > div:nth-child(3n-2) { margin-bottom: 0.12em; font-weight: 500; }
+  .languages-grid > div:nth-child(3n-1) { margin-bottom: 0.09em; }
+  .languages-grid > div:nth-child(3n)   { margin-bottom: 0; color: #ffd580; }
 
+  /* Add top border and space only between language groups */
+  .languages-grid > div:nth-child(3n+1) {
+    margin-top: 7em;
+    padding-top: .5em;
+    border-top: 1px solid #4446;
+  }
+  .languages-grid > div:first-child {
+    margin-top: 5em;
+    padding-top: .5em;
+    border-top: none;
+    border-top: 1px solid #4446;
+  }
+}
 
 /* Optional: If you want the proficiency text (last column) a bit smaller */
 .languages-grid > div:nth-child(3n) {
