@@ -502,13 +502,12 @@ body {
     max-width: 100% !important;
     border-radius: 0;
     top: 0;
-    /* height: 100vh-env(safe-area-inset-bottom); */
-    height: var(--app-height);
+    height: 100svh-env(safe-area-inset-bottom);
     padding: 2rem 0.5rem;
     background: rgba(30, 32, 40, 0.88); /* more see-through */
     z-index: 2;
     overflow-y: auto;
-    height: 100vh;
+    height: 100svh;
     padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
     padding: 1rem 0.2rem !important;
     box-sizing: border-box;
