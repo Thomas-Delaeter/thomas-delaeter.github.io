@@ -101,7 +101,7 @@ body {
   backdrop-filter: blur(2px);
   font-size: 1.2rem;
   display: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .right-div:hover {
   box-shadow: 0 12px 48px rgba(0,0,0,0.43);
@@ -155,7 +155,7 @@ body {
   }
   .right-div {
     /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
-    padding-bottom: 120px !important;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
   }
   .right-div, .right-div.experiences-active {
     padding: 1rem 0.2rem !important;
