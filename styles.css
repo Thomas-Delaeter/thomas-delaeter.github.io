@@ -141,31 +141,6 @@ body {
   background: #23262e;
 }
 
-@media (max-width: 1000px) {
-  .about-card, .about-card-scroll {
-    max-width: 98% !important;
-    padding: 1rem 0.3rem !important;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    /* max-height: 80%; */
-    max-height: calc(96vh - (100px+env(safe-area-inset-*))); 
-
-    padding-bottom: 10%; /* Let the padding on .right-div do the job */
-    overflow-y: auto;
-  }
-  .right-div.experiences-active .about-card {
-    /* max-height: 83vh; */
-    /* overflow-y: auto; */
-    /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
-  }
-}
-
-/* @media(max-width: 1000px){
-  .right-div .about-card:last-child{
-    margin-bottom: 160px;
-  }
-} */
-
 .img-wrapper {
   display: flex;
   justify-content: center;
@@ -622,17 +597,35 @@ body {
 
 @media (max-width: 1000px) {
   .about-card, .about-card-scroll {
+    max-width: 98% !important;
     max-height: none !important;
     height: auto !important;
     overflow-y: visible !important;
+    padding: 1rem 0.3rem !important;
     padding-bottom: 1em !important;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    /* max-height: calc(96vh - (100px+env(safe-area-inset-bottom)));  */
+
+    /* padding-bottom: 10%;  */
+    overflow-y: auto;
+
   }
+
   .right-div, .right-div.experiences-active {
     overflow-y: auto !important;
     height: 100vh !important;
     padding-bottom: 5vh !important;
   }
 }
+
+@media (max-width: 1000px) {
+  .about-card, .about-card-scroll {
+    /* max-height: 80%; */
+    
+  }
+}
+
 .right-div::-webkit-scrollbar {
   width: 9px;
 }
