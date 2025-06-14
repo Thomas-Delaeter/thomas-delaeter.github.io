@@ -261,7 +261,7 @@ const planetData = [
                             <br>
                             <span style="color:#3489db;">https://archives.thomas.delaeter.com</span>
                         </p>
-                        <a class="archive-btn disabled" href="#" tabindex="-1" aria-disabled="true">
+                        <a class="archive-btn disabled bp-1" href="#" tabindex="-1" aria-disabled="true">
                             <i class="bi bi-clock-history"></i> Coming Soon
                         </a>
                         <!-- 
