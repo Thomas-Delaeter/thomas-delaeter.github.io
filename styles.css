@@ -157,13 +157,11 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
     /* max-height: 80%; */
-    /* margin-bottom: 50px; */
-
     max-height: calc(100vh - 160px); /* Subtract enough for header + padding + pagination area */
     margin-bottom: 0; /* Let the padding on .right-div do the job */
   }
   .right-div {
-    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important;
+    /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
   }
   .right-div, .right-div.experiences-active {
     padding: 1rem 0.2rem !important;
@@ -172,7 +170,13 @@ body {
   .right-div.experiences-active .about-card {
     /* max-height: 83vh; */
     overflow-y: auto;
-    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important;
+    /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
+  }
+}
+
+@media(max-width: 1000px){
+  .right-div .about-card:last-child{
+    margin-bottom: 160px;
   }
 }
 
