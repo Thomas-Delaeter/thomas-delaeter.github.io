@@ -514,11 +514,12 @@ body {
 .left-arrow { left: 20px; }
 .right-arrow { right: 20px; }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .mobile-arrow {
     display: flex;
   }
-}
+} */
+
 /* canvas {
   position: fixed !important;
   top: 0;

@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+
 
 // Scene, camera_overview, Renderer
 const scene = new THREE.Scene();
@@ -298,7 +301,7 @@ planetData.forEach(p => {
 // camera_overview + Controls
 // camera_overview.position.z = 20;
 const controls = new OrbitControls(camera_overview, renderer.domElement);
-const radius = 20;
+const radius = 13;
 const theta = Math.PI / 4;  // 45 degrees from the Y axis
 const phi = Math.PI / 4;    // 45 degrees around the Y axis
 
@@ -307,7 +310,7 @@ camera_overview.position.set(
     radius * Math.cos(theta) - 4,
     radius * Math.sin(theta) * Math.sin(phi)
 );
-camera_overview.lookAt(0, -3, 0);
+camera_overview.lookAt(0, -2, 0);
 
 camera_follow.position.set(
     0, 5, 0
@@ -331,7 +334,8 @@ window.addEventListener('keydown', (event) => {
         topBox.style.display = 'flex';
         showMobileArrows(false);
         showExitChaseBtn(false);
-
+        if (clickMeTextMesh) clickMeTextMesh.visible = true;
+        if (clickMeTextMesh2) clickMeTextMesh2.visible = true;
     }
     if (event.key === 'ArrowDown') {
         activeCamera = camera_follow;
@@ -340,7 +344,8 @@ window.addEventListener('keydown', (event) => {
         topBox.style.display = 'none';
         showMobileArrows(true);
         showExitChaseBtn(true);
-        
+        if (clickMeTextMesh) clickMeTextMesh.visible = false;
+        if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
     }
     if (event.key === 'ArrowRight') {
         planetIndex = (planetIndex + 1) % planets.length;
@@ -376,6 +381,39 @@ function animate() {
     
     const isMobile = window.innerWidth < 1000;
     const tooltip = document.getElementById('planetTooltip');
+
+    // --- "click me" wrapping around sun
+    const sunRadius = 2;
+    const textOrbitRadius = sunRadius + 0.4;
+    const tilt = Math.PI / 7;
+
+    if (clickMeTextMesh) {
+        const time = Date.now() * 0.6 * 0.001; // slightly faster
+        const tilt = Math.PI / 7; // adjust for more/less tilt
+
+        const x = sun.position.x + textOrbitRadius * Math.cos(time);
+        const y = sun.position.y + textOrbitRadius * Math.sin(tilt) * Math.sin(time);
+        const z = sun.position.z + textOrbitRadius * Math.cos(tilt) * Math.sin(time);
+
+        clickMeTextMesh.position.set(x, y, z);
+
+        // Makes the text "stand up" perpendicular to the sun, facing outward
+        clickMeTextMesh.lookAt(
+            clickMeTextMesh.position.clone().sub(sun.position).normalize().add(clickMeTextMesh.position)
+        );
+    }
+    if (clickMeTextMesh2) {
+        const time = Date.now() * 0.6 * 0.001 + Math.PI; // Offset by 180 degrees
+        const x = sun.position.x + textOrbitRadius * Math.cos(time);
+        const y = sun.position.y + textOrbitRadius * Math.sin(tilt) * Math.sin(time);
+        const z = sun.position.z + textOrbitRadius * Math.cos(tilt) * Math.sin(time);
+
+        clickMeTextMesh2.position.set(x, y, z);
+        clickMeTextMesh2.lookAt(
+            clickMeTextMesh2.position.clone().sub(sun.position).normalize().add(clickMeTextMesh2.position)
+    );
+}
+    
     if (!isMobile && activeCamera === camera_follow) {
         const planet = planetToFollow;
         const data = planetData[planetIndex];
@@ -508,7 +546,6 @@ const showMobileArrows = (show) => {
     el.style.display = show ? 'flex' : 'none';
   });
 };
-showMobileArrows(false);
 const showExitChaseBtn = (show) => {
   document.getElementById('exitChaseBtn').style.display = show ? 'flex' : 'none';
 };
@@ -517,6 +554,8 @@ document.getElementById('exitChaseBtn').addEventListener('click', () => {
   // Simulate pressing ArrowUp (overview mode)
   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
   showExitChaseBtn(false);
+  if (clickMeTextMesh) clickMeTextMesh.visible = true;
+  if (clickMeTextMesh2) clickMeTextMesh2.visible = true;
 });
 showExitChaseBtn(false);
 
@@ -545,8 +584,54 @@ renderer.domElement.addEventListener('pointerdown', (event) => {
         topBox.style.display = 'none';
         showMobileArrows(true);
         showExitChaseBtn(true);
+        if (clickMeTextMesh) clickMeTextMesh.visible = false;
+        if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
     }
 });
 
+const loader = new FontLoader(); // Only one loader
+let textMesh;        // Your name text
+let clickMeTextMesh; // The "click me" text
+
+
+// "click me" orbiting the sun
+loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+    const textGeo = new TextGeometry('click me', {
+        font: font,
+        size: 0.32,
+        height: 0.04,
+        depth: .1,
+        curveSegments: 10,
+    });
+    const material = new THREE.MeshStandardMaterial({
+        color: 0xffd580,
+        metalness: 0.4,
+        roughness: 0.3,
+        emissive: 0x222211
+    });
+    clickMeTextMesh = new THREE.Mesh(textGeo, material);
+    textGeo.center();
+    scene.add(clickMeTextMesh);
+});
+
+let clickMeTextMesh2;
+loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+    const textGeo2 = new TextGeometry('click me', {
+        font: font,
+        size: 0.32,
+        height: 0.04,
+        depth: .1,
+        curveSegments: 10,
+    });
+    const material2 = new THREE.MeshStandardMaterial({
+        color: 0xffd580,
+        metalness: 0.4,
+        roughness: 0.3,
+        emissive: 0x222211
+    });
+    clickMeTextMesh2 = new THREE.Mesh(textGeo2, material2);
+    textGeo2.center();
+    scene.add(clickMeTextMesh2);
+});
 
 animate();
