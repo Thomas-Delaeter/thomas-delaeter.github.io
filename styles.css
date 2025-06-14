@@ -135,7 +135,7 @@ body {
 }
 
 .right-div.experiences-active .about-card {
-  max-height: 79vh;
+  /* max-height: 79vh; */
   overflow-y: auto;
 }
 
@@ -156,10 +156,15 @@ body {
     padding: 1rem 0.3rem !important;
     overflow-x: hidden;
     box-sizing: border-box;
+    max-height: 80%;
   }
   .right-div, .right-div.experiences-active {
     padding: 1rem 0.2rem !important;
     box-sizing: border-box;
+  }
+  .right-div.experiences-active .about-card {
+    max-height: 83vh;
+    overflow-y: auto;
   }
 }
 
