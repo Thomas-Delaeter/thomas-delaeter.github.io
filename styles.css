@@ -48,15 +48,6 @@ body {
   }
 }
 
-/* #Header {
-  position: absolute;
-  background-color: whitesmoke;
-  top: 10px;
-  width: 100%;
-  text-align: center;
-  z-index: 100;
-  display:block;
-} */
 #planetName{
   text-align: center;
   margin-bottom: .05em;
@@ -157,8 +148,10 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
     /* max-height: 80%; */
-    max-height: calc(100vh - 160px); /* Subtract enough for header + padding + pagination area */
-    margin-bottom: 0; /* Let the padding on .right-div do the job */
+    max-height: calc(96vh - 100px); 
+
+    padding-bottom: 10%; /* Let the padding on .right-div do the job */
+    overflow-y: auto;
   }
   .right-div {
     /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
@@ -169,16 +162,16 @@ body {
   }
   .right-div.experiences-active .about-card {
     /* max-height: 83vh; */
-    overflow-y: auto;
+    /* overflow-y: auto; */
     /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
   }
 }
 
-@media(max-width: 1000px){
+/* @media(max-width: 1000px){
   .right-div .about-card:last-child{
     margin-bottom: 160px;
   }
-}
+} */
 
 .img-wrapper {
   display: flex;
