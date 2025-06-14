@@ -258,7 +258,7 @@ body {
 }
 
 /* On small screens, allow horizontal scrolling if needed */
-/* @media (max-width: 1000px) {
+@media (min-width: 599px) and (max-width: 999px) {
   .languages-grid {
     display: grid !important;
     grid-template-columns: auto 1fr max-content !important;
@@ -275,8 +275,8 @@ body {
     align-items: center;
     justify-content: center;
   }
-} */
-@media (max-width: 650px) {
+}
+@media (max-width: 600px) {
   .languages-grid {
     display: flex !important;
     flex-direction: column !important;
@@ -358,6 +358,7 @@ body {
   margin-bottom:1.2em;
   margin-left: .6em;
   margin-right: .6em;
+  flex-wrap: wrap;
 }
 
 .chip {
