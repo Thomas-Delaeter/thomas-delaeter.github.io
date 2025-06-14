@@ -53,6 +53,7 @@ const planetData = [
                             <strong>Dynamic, driven, and hard-working</strong> young talent with a strong focus on <span class="accent">effective teamwork</span>.
                             I use my <span class="accent">enthusiasm</span> to contribute value to a company whose solutions make a real difference.
                         </p>
+                    
                     <div class="contact-card">
                         <div class="contact-row">
                             <a href="https://www.linkedin.com/in/thomasdelaeter/" target="_blank" class="contact-link">
