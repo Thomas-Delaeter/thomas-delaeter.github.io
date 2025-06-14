@@ -153,14 +153,6 @@ body {
     padding-bottom: 10%; /* Let the padding on .right-div do the job */
     overflow-y: auto;
   }
-  .right-div {
-    /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
-    padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
-  }
-  .right-div, .right-div.experiences-active {
-    padding: 1rem 0.2rem !important;
-    box-sizing: border-box;
-  }
   .right-div.experiences-active .about-card {
     /* max-height: 83vh; */
     /* overflow-y: auto; */
@@ -495,12 +487,18 @@ body {
     max-width: 100% !important;
     border-radius: 0;
     top: 0;
-    height: 100vh;
+    height: 100vh-env(safe-area-inset-bottom);
     padding: 2rem 0.5rem;
     background: rgba(30, 32, 40, 0.88); /* more see-through */
     z-index: 2;
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
+    padding: 1rem 0.2rem !important;
+    box-sizing: border-box;
   }
 }
+
 .mobile-arrow {
   display: none;
   position: fixed;
