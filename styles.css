@@ -614,7 +614,7 @@ body {
 
   .right-div, .right-div.experiences-active {
     overflow-y: auto !important;
-    height: 100vh !important;
+    height: 100svh !important;
     padding-bottom: 5vh !important;
   }
 }
