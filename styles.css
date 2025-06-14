@@ -135,7 +135,7 @@ body {
 }
 
 .right-div.experiences-active .about-card {
-  max-height: 82vh;
+  max-height: 79vh;
   overflow-y: auto;
 }
 
@@ -409,7 +409,7 @@ body {
 }
 .timeline-dot {
   position: absolute;
-  left: 0;
+  left: 1%;
   top: 6px;
   width: 13px;
   height: 13px;
@@ -445,6 +445,8 @@ body {
 .contact-card {
   margin-top: 1em;
   padding-top: 0.5em;
+  margin-left: 1em;
+  margin-right: 1em;
   border-top: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
@@ -490,7 +492,7 @@ body {
 .mobile-arrow {
   display: none;
   position: fixed;
-  top: 50%;
+  top: 63%;
   z-index: 2000;
   width: 54px;
   height: 54px;

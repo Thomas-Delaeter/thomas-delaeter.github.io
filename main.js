@@ -228,7 +228,7 @@ const planetData = [
                         <h3 class="section-title">Extra</h3>
                         <div class="custom-divider"></div>
                         <div class="hobby-chips">
-                            <span class="chip">Drivers License <br>🚗B</span>
+                            <span class="chip">Drivers License B 🚗</span>
                         </div>
                     </div>`
     },
