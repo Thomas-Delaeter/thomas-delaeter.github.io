@@ -155,6 +155,7 @@ body {
   }
   .right-div {
     /* padding-bottom: calc(100px + env(safe-area-inset-bottom, 0)) !important; */
+    padding-bottom: 120px !important;
   }
   .right-div, .right-div.experiences-active {
     padding: 1rem 0.2rem !important;
