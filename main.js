@@ -217,6 +217,7 @@ const planetData = [
         name: "Saturn", radius: 0.5, orbit: 17, color: 0xffddaa, speed: 0.0001, cvHeader: "More About Me",
         cvContent: `<div class="about-card">
                         <h3 class="section-title">Interests</h3>
+                        <div class="custom-divider"></div>
                         <div class="hobby-chips">
                             <span class="chip">Volleyball 🏐</span>
                             <span class="chip">Guitar 🎸</span>
@@ -225,6 +226,7 @@ const planetData = [
                     </div>
                     <div class="about-card">
                         <h3 class="section-title">Extra</h3>
+                        <div class="custom-divider"></div>
                         <div class="hobby-chips">
                             <span class="chip">Drivers License <br>🚗B</span>
                         </div>
