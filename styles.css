@@ -492,6 +492,16 @@ body {
   text-decoration: underline;
 }
 
+.contact-color {
+  /* display: flex; */
+  align-items: center;
+  /* gap: 0.5em; */
+  color: #3489db;
+  /* text-decoration: none; */
+  font-weight: 500;
+  transition: color 0.14s;
+}
+
 /* mobile stuff */
 @media (max-width: 1000px) {
   .right-div, .right-div.experiences-active {

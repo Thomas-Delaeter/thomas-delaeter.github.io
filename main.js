@@ -66,7 +66,7 @@ const planetData = [
                             </a>
                         </div>
                         <div class="contact-row contact-color">
-                        <i class="bi bi-geo-alt-fill"></i>Ghent
+                        <i class="bi bi-geo-alt-fill"></i> Ghent
                         </div>
                         <div class="contact-row">
                             <a href="tel:+32123456789" class="contact-link">
