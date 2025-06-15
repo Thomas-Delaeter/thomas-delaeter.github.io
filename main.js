@@ -65,6 +65,9 @@ const planetData = [
                             <i class="bi bi-envelope-fill"></i> thomas.delaeter@hotmail.com
                             </a>
                         </div>
+                        <div class="contact-row contact-color">
+                        <i class="bi bi-geo-alt-fill"></i>Ghent
+                        </div>
                         <div class="contact-row">
                             <a href="tel:+32123456789" class="contact-link">
                             <i class="bi bi-telephone-fill"></i> +32 468 18 62 20
@@ -231,6 +234,11 @@ const planetData = [
                         <div class="hobby-chips">
                             <span class="chip">Drivers License B 🚗</span>
                         </div>
+                    </div>
+                    <div class="about-card">
+                        <h3 class="section-title">References</h3>
+                        <div class="custom-divider"></div>
+                        <p>Available upon request.</p>
                     </div>`
     },
     {
@@ -663,3 +671,35 @@ function setAppHeight() {
 }
 window.addEventListener('resize', setAppHeight);
 setAppHeight();
+
+// function isAboutCardClippingArrows() {
+//   if (window.innerWidth > 1000) return false;
+
+//   const aboutCard = document.querySelector('.about-card');
+//   const rightDiv = document.querySelector('.right-div');
+//   const rightArrow = document.querySelector('.right-arrow');
+  
+//   if (!aboutCard || !rightDiv || !rightArrow) return false;
+
+//   const aboutRect = aboutCard.getBoundingClientRect();
+//   const arrowRect = rightArrow.getBoundingClientRect();
+
+//   // Check if the bottom of the about card is below the top of the arrow
+//   return aboutRect.bottom > arrowRect.top - 8; // tweak the 8 if needed
+// }
+
+// function updateMobilePadding() {
+//   const rightDiv = document.querySelector('.right-div');
+//   if (!rightDiv) return;
+//   if (isAboutCardClippingArrows()) {
+//     rightDiv.classList.add('add-bottom-padding');
+//   } else {
+//     rightDiv.classList.remove('add-bottom-padding');
+//   }
+// }
+
+// // Run on resize, on info/card change, and when right-div is shown
+// window.addEventListener('resize', updateMobilePadding);
+// document.addEventListener('DOMContentLoaded', updateMobilePadding);
+// // You might also want to call this after updating content
+// // setTimeout(updateMobilePadding, 0); // after changing content
