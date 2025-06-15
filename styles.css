@@ -50,7 +50,7 @@ body {
 
 #planetName{
   text-align: center;
-  margin-bottom: .05em;
+  /* margin-bottom: .05em; */
 }
 .custom-tooltip {
   position: absolute;
@@ -92,7 +92,7 @@ body {
   border-radius: 18px;
   border: 1.5px solid rgba(255,255,255,0.13); /* Subtle border */
   box-shadow: 0 6px 32px rgba(0,0,0,0.34);
-  padding: 2rem;
+  padding: 1rem;
   color: #f2f4f8; /* Light text for dark bg */
   display: flex;
   flex-direction: column;
@@ -116,6 +116,10 @@ body {
   text-align: center;
   max-width: 1000px;
   margin: 1.5rem auto;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: 0.2rem;
+  /* margin-bottom: 1.5rem; */
   border: 1px solid rgba(255,255,255,0.05);
   font-size: 1.1rem;
 
@@ -124,6 +128,15 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #6ac7f5 #23262e;
 }
+
+.right-div-inner .about-card:first-child {
+  margin-top: 0 !important;
+}
+
+.right-div-inner .about-card:last-child {
+  margin-bottom: 0 !important;
+}
+
 
 .right-div.experiences-active .about-card {
   /* max-height: 79vh; */
@@ -615,8 +628,8 @@ body {
     max-height: none !important;
     height: auto !important;
     overflow-y: visible !important;
-    padding: 1rem 0.3rem !important;
-    padding-bottom: 1em !important;
+    /* padding: 1rem 0.3rem !important; */
+    /* padding-bottom: 1em !important; */
     overflow-x: hidden;
     box-sizing: border-box;
     /* max-height: calc(96vh - (100px+env(safe-area-inset-bottom)));  */
@@ -632,7 +645,7 @@ body {
   }
 }
 .right-div-inner {
-  height: 100%;
+  height: 90%;
   overflow-y: auto;
   border-radius: inherit;
 }
