@@ -186,26 +186,8 @@ const planetData = [
                     </div>`
     },
     {
-        name: "Jupiter", radius: 0.6, orbit: 14, color: 0xffbb77, speed: 0.00013, cvHeader: "Languages & Soft Skills",
+        name: "Jupiter", radius: 0.6, orbit: 14, color: 0xffbb77, speed: 0.00013, cvHeader: "Personal Skills & Languages",
         cvContent: `<div class="about-card">
-                    <h3 class="section-title"><i class="bi bi-translate"></i> Languages</h3>
-                    <div class="custom-divider"></div>
-                    <div class="languages-grid">
-                        <div><span class="chip">Dutch</span></div>
-                        <div>▰▰▰▰▰</div>
-                        <div>Native (C2)</div>
-                        <div><span class="chip">English</span></div>
-                        <div>▰▰▰▰▱</div>
-                        <div>Fluent (C1)</div>
-                        <div><span class="chip">French</span></div>
-                        <div>▰▰▰▱▱</div>
-                        <div>Intermediate (B1)</div>
-                        <div><span class="chip">German</span></div>
-                        <div>▰▱▱▱▱</div>
-                        <div>Notions</div>
-                    </div>
-                    </div>
-                    <div class="about-card">
                     <h3 class="section-title"><i class="bi bi-stars"></i> Personal Skills</h3>
                     <div class="custom-divider"></div>
                     <ul class="list-unstyled d-flex justify-content-between flex-wrap text-center">
@@ -214,6 +196,24 @@ const planetData = [
                         <li class="d-flex align-items-center"><i class="bi bi-arrow-up-right-circle-fill mr-2 text-success"></i>Tenacious</li>
                         <li class="d-flex align-items-center"><i class="bi bi-people-fill mr-2 text-info"></i>Mediator</li>
                     </ul>
+                    </div>
+                    <div class="about-card">
+                    <h3 class="section-title"><i class="bi bi-translate"></i> Languages</h3>
+                    <div class="custom-divider"></div>
+                    <div class="languages-grid">
+                        <div><span class="chip-cl">Dutch</span></div>
+                        <div>▰▰▰▰▰</div>
+                        <div>Native (C2)</div>
+                        <div><span class="chip-cl">English</span></div>
+                        <div>▰▰▰▰▱</div>
+                        <div>Fluent (C1)</div>
+                        <div><span class="chip-cl">French</span></div>
+                        <div>▰▰▰▱▱</div>
+                        <div>Intermediate (B1)</div>
+                        <div><span class="chip-cl">German</span></div>
+                        <div>▰▱▱▱▱</div>
+                        <div>Notions</div>
+                    </div>
                     </div>
                     `
     },
