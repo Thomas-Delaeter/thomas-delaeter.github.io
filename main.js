@@ -35,8 +35,10 @@ const sunGlowMaterial = new THREE.SpriteMaterial({
   transparent: true,
   opacity: 0.1,
 });
+sunGlowMaterial.depthTest = false;
 const sunGlow = new THREE.Sprite(sunGlowMaterial);
 sunGlow.scale.set(8, 8, 1); // Make it bigger than the sun
+sunGlow.renderOrder = 0; // Lower means rendered earlier
 sun.add(sunGlow);
 
 const planetData = [
@@ -325,11 +327,14 @@ planetData.forEach(p => {
     });
     const solidOrbitMesh = new THREE.Mesh(solidOrbitGeometry, solidOrbitMaterial);
     solidOrbitMesh.rotation.x = Math.PI / 2;
+    solidOrbitMesh.renderOrder = 1;
+
     scene.add(solidOrbitMesh);
 
     // Dashed line orbit (initially hidden)
     const dashedOrbitLine = createDashedOrbit(orbitRadius + 0.025);
     dashedOrbitLine.visible = false; // only show when active
+    dashedOrbitLine.renderOrder = 1;
     scene.add(dashedOrbitLine);
 
     p._solidOrbitMesh = solidOrbitMesh;
