@@ -716,7 +716,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.9em;
-  z-index: 1100;
+  z-index: 9999;
   pointer-events: none; /* Not clickable */
   opacity: 1;
   animation: tip-bounce 2.2s infinite;
