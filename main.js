@@ -381,6 +381,7 @@ window.addEventListener('keydown', (event) => {
         if (clickMeTextMesh) clickMeTextMesh.visible = true;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = true;
         setOverviewTipVisible(true);
+        updateOrbitRings()
     }
     if (event.key === 'ArrowDown') {
         activeCamera = camera_follow;
@@ -619,6 +620,7 @@ document.getElementById('exitChaseBtn').addEventListener('click', () => {
   showExitChaseBtn(false);
   if (clickMeTextMesh) clickMeTextMesh.visible = true;
   if (clickMeTextMesh2) clickMeTextMesh2.visible = true;
+  updateOrbitRings()
 });
 showExitChaseBtn(false);
 
