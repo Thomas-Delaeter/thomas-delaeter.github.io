@@ -671,3 +671,29 @@ body {
 .right-div::-webkit-scrollbar-track {
   background: #23262e;
 }
+
+/* Custom SimpleBar Scrollbar Styling */
+.simplebar-scrollbar:before {
+  background: #6ac7f5 !important;      /* Thumb color, matches your custom */
+  border-radius: 6px !important;       /* Rounded corners */
+  opacity: 1 !important;               /* Fully opaque */
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 9px !important;               /* Match your scrollbar width */
+  background: #23262e !important;      /* Track color */
+  border-radius: 8px !important;
+  right: 2px;
+}
+
+.simplebar-track.simplebar-horizontal {
+  height: 9px !important;
+  background: #23262e !important;
+  border-radius: 8px !important;
+  bottom: 2px;
+}
+
+/* Optional: Hide the default background if you want */
+.simplebar-track {
+  box-shadow: none !important;
+}
