@@ -366,6 +366,7 @@ window.addEventListener('keydown', (event) => {
         showExitChaseBtn(false);
         if (clickMeTextMesh) clickMeTextMesh.visible = true;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = true;
+        setOverviewTipVisible(true);
     }
     if (event.key === 'ArrowDown') {
         activeCamera = camera_follow;
@@ -376,6 +377,7 @@ window.addEventListener('keydown', (event) => {
         showExitChaseBtn(true);
         if (clickMeTextMesh) clickMeTextMesh.visible = false;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
+        setOverviewTipVisible(false);
     }
     if (event.key === 'ArrowRight') {
         planetIndex = (planetIndex + 1) % planets.length;
@@ -616,6 +618,7 @@ renderer.domElement.addEventListener('pointerdown', (event) => {
         showExitChaseBtn(true);
         if (clickMeTextMesh) clickMeTextMesh.visible = false;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
+        setOverviewTipVisible(false);
     }
 });
 
@@ -672,34 +675,9 @@ function setAppHeight() {
 window.addEventListener('resize', setAppHeight);
 setAppHeight();
 
-// function isAboutCardClippingArrows() {
-//   if (window.innerWidth > 1000) return false;
-
-//   const aboutCard = document.querySelector('.about-card');
-//   const rightDiv = document.querySelector('.right-div');
-//   const rightArrow = document.querySelector('.right-arrow');
-  
-//   if (!aboutCard || !rightDiv || !rightArrow) return false;
-
-//   const aboutRect = aboutCard.getBoundingClientRect();
-//   const arrowRect = rightArrow.getBoundingClientRect();
-
-//   // Check if the bottom of the about card is below the top of the arrow
-//   return aboutRect.bottom > arrowRect.top - 8; // tweak the 8 if needed
-// }
-
-// function updateMobilePadding() {
-//   const rightDiv = document.querySelector('.right-div');
-//   if (!rightDiv) return;
-//   if (isAboutCardClippingArrows()) {
-//     rightDiv.classList.add('add-bottom-padding');
-//   } else {
-//     rightDiv.classList.remove('add-bottom-padding');
-//   }
-// }
-
-// // Run on resize, on info/card change, and when right-div is shown
-// window.addEventListener('resize', updateMobilePadding);
-// document.addEventListener('DOMContentLoaded', updateMobilePadding);
-// // You might also want to call this after updating content
-// // setTimeout(updateMobilePadding, 0); // after changing content
+function setOverviewTipVisible(isVisible) {
+  const tip = document.getElementById('overview-tip');
+  tip.style.opacity = isVisible ? "1" : "0";
+  tip.style.pointerEvents = isVisible ? "auto" : "none";
+}
+setOverviewTipVisible(true);

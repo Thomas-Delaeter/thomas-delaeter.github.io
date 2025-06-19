@@ -697,3 +697,61 @@ body {
 .simplebar-track {
   box-shadow: none !important;
 }
+
+.overview-tip {
+  position: fixed;
+  bottom: 9.5vh; /* about 5-6vh above dots */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 32, 40, 0.95);
+  color: #ffd580;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255,255,255,0.11);
+  box-shadow: 0 6px 32px rgba(0,0,0,0.32);
+  padding: 0.8em 1.5em;
+  font-size: 1.18rem;
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  z-index: 1100;
+  pointer-events: none; /* Not clickable */
+  opacity: 1;
+  animation: tip-bounce 2.2s infinite;
+  transition: opacity 0.19s;
+}
+.overview-tip .bi-mouse {
+  font-size: 1.2em;
+  color: #6ac7f5;
+  margin-right: 0.35em;
+}
+.overview-tip .tip-divider {
+  color: #aaa;
+  margin: 0 0.9em;
+}
+.overview-tip .bi-arrow-left-circle-fill,
+.overview-tip .bi-arrow-right-circle-fill {
+  font-size: 1.2em;
+  color: #ffd580;
+  margin: 0 0.13em;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 5px #6ac7f544);
+}
+
+/* Nice bounce animation */
+@keyframes tip-bounce {
+  0%, 100%   { transform: translateX(-50%) translateY(0); }
+  18%        { transform: translateX(-50%) translateY(-8px); }
+  30%        { transform: translateX(-50%) translateY(0); }
+  40%        { transform: translateX(-50%) translateY(-4px);}
+  50%        { transform: translateX(-50%) translateY(0);}
+}
+
+/* Hide on mobile */
+@media (max-width: 1000px) {
+  .overview-tip-arrows {
+    display: none !important;
+  }
+}
