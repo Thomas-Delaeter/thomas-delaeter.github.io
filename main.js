@@ -38,7 +38,6 @@ const sunGlowMaterial = new THREE.SpriteMaterial({
 sunGlowMaterial.depthTest = false;
 const sunGlow = new THREE.Sprite(sunGlowMaterial);
 sunGlow.scale.set(8, 8, 1); // Make it bigger than the sun
-sunGlow.renderOrder = 0; // Lower means rendered earlier
 sun.add(sunGlow);
 
 const planetData = [
@@ -327,7 +326,6 @@ planetData.forEach(p => {
     });
     const solidOrbitMesh = new THREE.Mesh(solidOrbitGeometry, solidOrbitMaterial);
     solidOrbitMesh.rotation.x = Math.PI / 2;
-    solidOrbitMesh.renderOrder = 1;
 
     scene.add(solidOrbitMesh);
 
@@ -584,7 +582,7 @@ renderPaginationDots();
 function updateOrbitRings() {
   planetData.forEach((p, i) => {
     if (p._solidOrbitMesh && p._dashedOrbitLine) {
-      if (i === planetIndex) {
+      if (activeCamera === camera_follow && i === planetIndex) {
         p._solidOrbitMesh.visible = false;
         p._dashedOrbitLine.visible = true;
       } else {
