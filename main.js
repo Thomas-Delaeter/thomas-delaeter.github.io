@@ -312,17 +312,28 @@ planetData.forEach(p => {
         mesh.add(ringMesh); // attach rings to Saturn!
     }
 
-    const orbitGeometry = new THREE.RingGeometry(p.orbit, p.orbit + 0.05, 256);
-    const orbitMaterial = new THREE.MeshBasicMaterial({
+    const orbitRadius = p.orbit;
+    const solidOrbitGeometry = new THREE.RingGeometry(orbitRadius, orbitRadius + 0.05, 256);
+    const solidOrbitMaterial = new THREE.MeshBasicMaterial({
         color: 0xffffff,
         side: THREE.DoubleSide,
         polygonOffset: true,
         polygonOffsetFactor: -1,
-        polygonOffsetUnits: -4
+        polygonOffsetUnits: -4,
+        opacity: 0.28,
+        transparent: true
     });
-    const orbitMesh = new THREE.Mesh(orbitGeometry, orbitMaterial);
-    orbitMesh.rotation.x = Math.PI / 2;
-    scene.add(orbitMesh);
+    const solidOrbitMesh = new THREE.Mesh(solidOrbitGeometry, solidOrbitMaterial);
+    solidOrbitMesh.rotation.x = Math.PI / 2;
+    scene.add(solidOrbitMesh);
+
+    // Dashed line orbit (initially hidden)
+    const dashedOrbitLine = createDashedOrbit(orbitRadius + 0.025);
+    dashedOrbitLine.visible = false; // only show when active
+    scene.add(dashedOrbitLine);
+
+    p._solidOrbitMesh = solidOrbitMesh;
+    p._dashedOrbitLine = dashedOrbitLine;
 
     planets.push(mesh);
     planetChaseDistScale.push(p.orbit / 20); // scale distance relative to orbit
@@ -560,8 +571,26 @@ function updateActiveDot() {
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.toggle('active', i === planetIndex);
     }
+    updateOrbitRings()
 }
 renderPaginationDots();
+
+function updateOrbitRings() {
+  planetData.forEach((p, i) => {
+    if (p._solidOrbitMesh && p._dashedOrbitLine) {
+      if (i === planetIndex) {
+        p._solidOrbitMesh.visible = false;
+        p._dashedOrbitLine.visible = true;
+      } else {
+        p._solidOrbitMesh.visible = true;
+        p._dashedOrbitLine.visible = false;
+      }
+    }
+  });
+}
+
+// Call this inside updateActiveDot() and when planetIndex changes
+
 
 // In case you programmatically change planetIndex somewhere else, call updateActiveDot();
 // --- Mobile Arrow Navigation ---
@@ -681,3 +710,28 @@ function setOverviewTipVisible(isVisible) {
   tip.style.pointerEvents = isVisible ? "auto" : "none";
 }
 setOverviewTipVisible(true);
+
+function createDashedOrbit(radius, color = 0x6ac7f5, dashes = 32) {
+  const segments = dashes * 2;
+  const points = [];
+  for (let i = 0; i <= segments; i++) {
+    const theta = (i / segments) * Math.PI * 2;
+    points.push(new THREE.Vector3(
+      Math.cos(theta) * radius,
+      0,
+      Math.sin(theta) * radius
+    ));
+  }
+  const geometry = new THREE.BufferGeometry().setFromPoints(points);
+  const material = new THREE.LineDashedMaterial({
+    color,
+    dashSize: 0.22,
+    gapSize: 0.12,
+    linewidth: 2, // Note: Only works on some platforms
+    transparent: true,
+    opacity: 0.85
+  });
+  const line = new THREE.Line(geometry, material);
+  line.computeLineDistances(); // **IMPORTANT** for dashes to show
+  return line;
+}
