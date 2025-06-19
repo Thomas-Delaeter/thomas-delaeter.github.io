@@ -389,6 +389,7 @@ window.addEventListener('keydown', (event) => {
         if (clickMeTextMesh) clickMeTextMesh.visible = false;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
         setOverviewTipVisible(false);
+        updateOrbitRings()
     }
     if (event.key === 'ArrowRight') {
         planetIndex = (planetIndex + 1) % planets.length;
@@ -589,8 +590,6 @@ function updateOrbitRings() {
   });
 }
 
-// Call this inside updateActiveDot() and when planetIndex changes
-
 
 // In case you programmatically change planetIndex somewhere else, call updateActiveDot();
 // --- Mobile Arrow Navigation ---
@@ -648,6 +647,7 @@ renderer.domElement.addEventListener('pointerdown', (event) => {
         if (clickMeTextMesh) clickMeTextMesh.visible = false;
         if (clickMeTextMesh2) clickMeTextMesh2.visible = false;
         setOverviewTipVisible(false);
+        updateOrbitRings()
     }
 });
 
