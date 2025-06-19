@@ -134,7 +134,7 @@ const planetData = [
                             <div class="timeline-content">
                                 <strong>Bachelor's thesis</strong><br>
                                 <span>"Neutraalpositie bepaling van de rug op basis van dagdagelijkse activiteiten"</span>
-                                <div class="timeline-details">Sep 2021 - Jun 2022 | Hogeschool Gent</div>
+                                <div class="timeline-details">Sep 2021 - Jun 2022 | HoGent</div>
                             </div>
                             </li>
                         </ul>
