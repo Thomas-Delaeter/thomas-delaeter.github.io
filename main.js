@@ -85,7 +85,7 @@ const planetData = [
                             <li>
                             <span class="timeline-dot"></span>
                             <div class="timeline-content">
-                                <strong>EUVIP 2025 conference submission</strong><br>
+                                <strong>EUVIP 2025 conference acceptance</strong><br>
                                 "Semi-Supervised Deep Subspace clustering for Hyperspectral Images"
                                 <div class="timeline-details">Jun 2025 | Ghent University</div>
                             </div>
