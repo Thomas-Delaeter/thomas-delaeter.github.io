@@ -153,7 +153,7 @@ const planetData = [
                         <div class="timeline-content">
                             <strong>Transition Program & Master</strong><br>
                             MSc Information Engineering Technology
-                            <div class="timeline-details">Sep 2022 - Present | Ghent University</div>
+                            <div class="timeline-details">Sep 2022 - Jun 2025 | Ghent University</div>
                         </div>
                         </li>                        
                         <li>
